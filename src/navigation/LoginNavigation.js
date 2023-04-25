@@ -3,85 +3,23 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
   Login,
   SignUp,
-  Upper,
+  Home,
   AllRestaurants,
   MoreDishes,
   CustomerOder,
 } from "../screen";
-import { Image } from "react-native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
-const Tab = createBottomTabNavigator();
-
-const MyTabs = () => {
-  return (
-    <Tab.Navigator screenOptions={{ headerShown: false }} >
-      <Tab.Screen
-        name="Upper"
-        component={Upper}
-        options={{
-          tabBarIcon: () => {
-            <Image
-              source={require("../assets/images/compass-circular-tool.png")}
-              style={{ height: 30, width: 30 }}
-              resizeMode="stretch"
-            ></Image>;
-          },
-        }}
-      />
-      <Tab.Screen
-        name="AllRestaurants"
-        component={AllRestaurants}
-        options={{
-          tabBarIcon: () => {
-            <Image
-              source={require("../assets/images/love.png")}
-              style={{ height: 30, width: 30 }}
-              resizeMode="stretch"
-            ></Image>;
-          },
-        }}
-      />
-      <Tab.Screen
-        name="MoreDishes"
-        component={MoreDishes}
-        options={{
-          tabBarIcon: () => {
-            <Image
-              source={require("../assets/images/profile-user.png")}
-              style={{ height: 30, width: 30 }}
-              resizeMode="stretch"
-            ></Image>;
-          },
-        }}
-      />
-      <Tab.Screen
-        name="CustomerOder"
-        component={CustomerOder}
-        options={{
-          tabBarIcon: () => {
-            <Image
-              source={require("../assets/images/profile-user.png")}
-              style={{ height: 30, width: 30 }}
-              resizeMode="stretch"
-            ></Image>;
-          },
-        }}
-      />
-    </Tab.Navigator>
-  );
-};
-
+import { routes } from "./routes";
 const Stack = createNativeStackNavigator();
 
-export default LoginNavigation = function () {
+const LoginNavigation = ()=> {
   return (
-    <NavigationContainer >
+    
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="SignUp" component={SignUp} />
-        <Stack.Screen name="MyTabs" component={MyTabs} />
+        <Stack.Screen name={routes.LOGIN} component={Login} />
+        <Stack.Screen name={routes.SIGNUP} component={SignUp} />
       </Stack.Navigator>
-    </NavigationContainer>
+  
   );
 };
+
+export default LoginNavigation

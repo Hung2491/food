@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import Button from "../components/button";
 import Input from "../components/fromTextInput";
+import { routes } from "../navigation/routes";
 
 const Login = ({ navigation }) => {
   return (
@@ -22,7 +23,7 @@ const Login = ({ navigation }) => {
           <Button
             title={"LOGIN"}
             onPress={() => {
-              navigation.navigate("MyTabs");
+              navigation.navigate(routes.HOMETAB);
             }}
           ></Button>
           <Text>
@@ -30,7 +31,7 @@ const Login = ({ navigation }) => {
             <Text
               style={{ color: "#fe724c" }}
               onPress={() => {
-                navigation.navigate("SignUp");
+                navigation.navigate(routes.SIGNUP);
               }}
             >
               Sign Up

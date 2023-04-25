@@ -8,42 +8,19 @@ import {
   StyleSheet,
   FlatList,
 } from "react-native";
-import HalfEnd from "./HalfEnd";
-
-const Upper = () => {
-  const Data = [
-    {
-      id: 1,
-      icon: require("../../assets/images/burger.png"),
-      description: "Burger",
-    },
-    {
-      id: 2,
-      icon: require("../../assets/images/donut.png"),
-      description: "Dessert",
-    },
-    {
-      id: 3,
-      icon: require("../../assets/images/hotdog.png"),
-      description: "HotDog",
-    },
-    {
-      id: 4,
-      icon: require("../../assets/images/pizza.png"),
-      description: "Pizza",
-    },
-  ];
-  const Hearder = () => (
+import OptionsIcon from '../assets/svgs/options.svg';
+const SearchForHome = () => {
+  return (
     <View style={styles.container}>
       <View style={{ height: "100%", width: "90%" }}>
         <View style={styles.formView}>
           <Image
             style={styles.image}
-            source={require("../../assets/images/list.png")}
+            source={require("../assets/images/list.png")}
           ></Image>
           <Image
             style={styles.image}
-            source={require("../../assets/images/profilePhoto.png")}
+            source={require("../assets/images/profilePhoto.png")}
           ></Image>
         </View>
         <Text style={styles.formTxt}>What would you like to order</Text>
@@ -51,45 +28,21 @@ const Upper = () => {
           <View style={styles.formView2}>
             <Image
               style={{ height: 25, width: 25, marginHorizontal: 15 }}
-              source={require("../../assets/images/search.png")}
+              source={require("../assets/images/search.png")}
             ></Image>
             <TextInput
               placeholder="Find for food or restaurant..."
               style={styles.formInput}
             ></TextInput>
           </View>
-          <TouchableOpacity>
+          <TouchableOpacity style={{marginLeft:25}}>
             <Image
               style={{ height: 55, width: 55 }}
-              source={require("../../assets/images/list.png")}
+              source={require("../assets/images/list.png")}
             ></Image>
           </TouchableOpacity>
         </View>
       </View>
-    </View>
-  );
-  const Body = ({ item }) => (
-    <TouchableOpacity style={styles.bodyView}>
-      <Image
-        source={item.icon}
-        style={{ height: 60, width: 60, borderRadius: 50, marginBottom: 10 }}
-      ></Image>
-      <Text style={{ marginBottom: 20, color:"white",fontSize:13 }}>{item.description}</Text>
-    </TouchableOpacity>
-  );
-  const RenderUpperHalf = () => (
-    <FlatList
-      ListHeaderComponent={Hearder}
-      data={Data}
-      renderItem={Body}
-      numColumns={4}
-      columnWrapperStyle={{ justifyContent: "center" }}
-    ></FlatList>
-  );
-  return (
-    <View style={{ backgroundColor: "#fefefe" }}>
-      <RenderUpperHalf></RenderUpperHalf>
-      <HalfEnd></HalfEnd>
     </View>
   );
 };
@@ -134,15 +87,6 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   formTxt: { fontSize: 30, fontWeight: "600", marginVertical: 8 },
-  bodyView: {
-    height: 125,
-    width: 70,
-    borderRadius: 50,
-    backgroundColor: "#fe724c",
-    justifyContent: "space-around",
-    alignItems: "center",
-    marginHorizontal: 9,
-  },
+  
 });
-
-export default Upper;
+export default SearchForHome;

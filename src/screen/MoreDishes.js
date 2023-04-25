@@ -9,8 +9,9 @@ import {
   FlatList,
 } from "react-native";
 import { Header } from "react-native/Libraries/NewAppScreen";
+import { routes } from "../navigation/routes";
 
-const MoreDishes = () => {
+const MoreDishes = ({ navigation }) => {
   const Data = [
     {
       id: 1,
@@ -35,24 +36,36 @@ const MoreDishes = () => {
       money: "15 $",
       description: "Combo 1",
       image: require("../assets/images/burgerFood.png"),
+      click: () => {
+        navigation.navigate(routes.DETAIL);
+      },
     },
     {
       id: 2,
       money: "20 $",
       description: "Combo 2",
       image: require("../assets/images/favoritesCard.png"),
+      click: () => {
+        navigation.navigate(routes.DETAIL);
+      },
     },
     {
       id: 3,
       money: "25 $",
       description: "Combo 3",
       image: require("../assets/images/basketFood.png"),
+      click: () => {
+        navigation.navigate(routes.DETAIL);
+      },
     },
     {
       id: 4,
       money: "30 $",
       description: "Combo 4",
       image: require("../assets/images/restaurant.png"),
+      click: () => {
+        navigation.navigate(routes.DETAIL);
+      },
     },
   ];
   const Dishes = ({ item }) => (
@@ -94,7 +107,7 @@ const MoreDishes = () => {
     </View>
   );
   const Body = ({ item }) => (
-    <TouchableOpacity style={styles.buton2}>
+    <TouchableOpacity style={styles.buton2} onPress={item.click}>
       <Image style={styles.formImage3} source={item.image}></Image>
       <View style={styles.formView4}>
         <Text style={{ fontSize: 17, fontWeight: "500", color: "white" }}>

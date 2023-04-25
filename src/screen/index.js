@@ -3,15 +3,20 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 import MoreDishes from "./MoreDishes";
 import Wellcome from "./Wellcome";
-import CustomerOder from "./CustomerOder";
-import Upper from "./Home/Upper";
-
+import Profile from "./Profile";
+import Home from "./Home";
+import Basket from "./Basket";
+import Detail from "./Detail";
+import Favorites from "./Favorites";
 export {
   AllRestaurants,
   Login,
   SignUp,
   MoreDishes,
   Wellcome,
-  CustomerOder,
-  Upper,
+  Home,
+  Profile,
+  Basket,
+  Detail,
+  Favorites
 };

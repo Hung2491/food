@@ -7,9 +7,12 @@ import {
   ImageBackground,
   StyleSheet,
   FlatList,
+  SafeAreaView,
+  ScrollView,
 } from "react-native";
+import { routes } from "../navigation/routes";
 
-const AllRestaurants = () => {
+const AllRestaurants = ({ navigation }) => {
   const Data = [
     {
       id: 1,
@@ -21,6 +24,9 @@ const AllRestaurants = () => {
       dish1: "Pizza",
       dish2: "Burger",
       dish3: "Chicken",
+      click: () => {
+        navigation.navigate(routes.MOREDISHES);
+      },
     },
     {
       id: 2,
@@ -32,6 +38,9 @@ const AllRestaurants = () => {
       dish1: "Pizza",
       dish2: "Burger",
       dish3: "Chicken",
+      click: () => {
+        navigation.navigate(routes.MOREDISHES);
+      },
     },
     {
       id: 3,
@@ -43,6 +52,9 @@ const AllRestaurants = () => {
       dish1: "Pizza",
       dish2: "Burger",
       dish3: "Chicken",
+      click: () => {
+        navigation.navigate(routes.MOREDISHES);
+      },
     },
     {
       id: 4,
@@ -54,6 +66,9 @@ const AllRestaurants = () => {
       dish1: "Pizza",
       dish2: "Burger",
       dish3: "Chicken",
+      click: () => {
+        navigation.navigate(routes.MOREDISHES);
+      },
     },
   ];
   const Header = () => (
@@ -68,7 +83,7 @@ const AllRestaurants = () => {
     </ImageBackground>
   );
   const Body = ({ item }) => (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={item.click}>
       <View style={styles.inContainer}>
         <ImageBackground
           source={item.background}
@@ -128,20 +143,23 @@ const AllRestaurants = () => {
     </TouchableOpacity>
   );
   return (
-    <View style={styles.container2}>
-      <Header></Header>
-      <FlatList
-        data={Data}
-        renderItem={Body}
-        horizontal={false}
-        contentContainerStyle={{ alignItems: "center", marginTop: 50 }}
-      ></FlatList>
-    </View>
+    <SafeAreaView style={styles.container2}>
+      <ScrollView showsHorizontalScrollIndicator={false}>
+        <Header></Header>
+        <FlatList
+          data={Data}
+          renderItem={Body}
+          horizontal={false}
+          contentContainerStyle={{ alignItems: "center", marginTop: 50 }}
+          showsHorizontalScrollIndicator={false}
+        ></FlatList>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container2: { flex: 1, alignItems: "center", backgroundColor:'white' },
+  container2: { flex: 1, backgroundColor: "white" },
   container1: {
     height: 330,
     width: "100%",
